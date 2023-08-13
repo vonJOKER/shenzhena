@@ -10,6 +10,43 @@
 \usepackage{graphicx} % 图片插入需要的宏包
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{zhlipsum,mwe}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{floatrow}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{adjustbox}
+\usepackage{floatrow}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\lstset{ 
+  backgroundcolor=\color{white},   				% 选择代码背景，必须加上\usepackage{color}或\usepackage{xcolor}.
+  basicstyle=\footnotesize,        				% 设置代码字号.
+  breakatwhitespace=false,        				% 设置是否当且仅当在空白处自动中断.
+  breaklines=true,                				% 设置自动断行.
+  captionpos=b,                    				% 设置标题位置.
+  commentstyle=\color{green},    				% 设置注释格式
+  deletekeywords={...},           				% 是否删除给定语言的关键词.
+  escapeinside={\%*}{*)},          				% 是否在代码中添加LaTex. 
+  frame=single,	                   				% 给代码区添加边框.
+  keepspaces=true,                 				% 保留空格（useful for keeping indentation of code (possibly needs columns=flexible).
+  keywordstyle=\color[RGB]{40,40,255},          % 关键字显示风格.
+  morekeywords={begin}, 			% 是否需要添加其他的关键词.
+  numbers=none,                    				% 给代码添加行号，可取值none, left, right.
+  numbersep=5pt,                   				% 设置行号与代码之间的间隔
+  numberstyle=\tiny\color{gray}, 				% 行号的字号和颜色
+  rulecolor=\color{black},         				% 边框颜色，如果没有设置，框架颜色可以在非黑色文本中的换行符上更改（例如 text (e.g. comments (green here))）
+  showspaces=false,                				% 显示每个地方添加特定下划线的空格; 覆盖了'showtringspaces'
+  showstringspaces=false,          				% 仅在字符串中允许空格
+  showtabs=false,                  				% show tabs within strings adding particular underscores
+  stepnumber=2,                    				% the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{teal},     				% string literal style
+  tabsize=2,	                   				% 将默认tab设置为2个空格
+  title=\lstname,                  	 			% show the filename of files included with \lstinputlisting; also try caption instead of title
+  language=Matlab
+}
 \usetikzlibrary{patterns}
 \title{全国大学生数学建模竞赛编写的 \LaTeX{} 模板}
 \tihao{A}
@@ -64,27 +101,37 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 \subsection{问题背景}
 近年来，随着社会经济的发展和生活方式的改变，慢性病在全球范围内显著上升，成为危害人类健康的重要公共卫生问题。慢性病的发展与个体的生活方式紧密相关。生活方式因素，如饮食习惯、体育锻炼、吸烟、饮酒等，被认为在慢性病的发生和发展中扮演着重要角色。不同的饮食结构、身体活动水平和生活习惯可能对慢性病的风险产生显著影响。为了更好地理解这种关联，必须进行深入研究，以便制定更精确的预防和干预策略。
 
-\subsection{问题的提出}
+\subsection{问题重述}
 
 
-根据所给表格数据，统计居民的各类饮食习惯，并与附件A3中所给出的中国居民膳食指南八条准则进行对比，从而对居民饮食习惯的合理性进行分析。
+健康状况与多种因素密切相关，其中包括个体的年龄、饮食习惯、身体活动水平、职业等。为了探究如何通过科学的方法来提升个体的身体健康水平，合理的膳食、适度的身体运动以及践行健康的生活方式成为了社会关注的焦点，我们需要分析慢性病患病率上升的原因，并通过调查问卷数据以及营养学准则，探讨慢性病与居民饮食习惯、生活习惯等因素之间的关系。同时，我们将基于附件A2中的具体数据情况，提出针对不同人群的身体健康建议。
 
+问题一要求我们根据附件A3中所给居民膳食指南分析附件A2中被调查者的饮食习惯合理与否，并对存在的主要问题加以分析。
 
-\section{模型的假设}
+问题二要求我们分析居民的生活习惯以及饮食习惯是否与年龄、性别等因素存在相关性并加以说明。
+
+问题三要求我们根据附件A2中的数据分析慢性病与吸烟、饮酒、饮食习惯等因素的相关性以及相关程度。
+
+问题四要求我们根据附件A2中的数据对居民进行分类，并且对每一类人群提出有利于身体健康的针对性建议。
+\section{模型假设}
 
 \begin{itemize}
-\item 我们一个月按照30天/4周来计算
+\item 我们一个月按照30天或者4周来计算
+\item 我们认为调查问卷的为真实填写，即问卷信度达标
+\item 我们认为居民膳食指南对所有居民适用，并不存在特殊不适用人群
 \end{itemize}
 
 \section{符号说明}
-\begin{table}[h!]
+\begin{table}[H]
   \centering
-  \small
   \begin{tabular}{p{60pt}<{\centering}|p{60pt}<{\centering}p{180pt}<{\raggedright}}
    \hline
     序号 & 符号 & 符号说明 \\
    \hline
-    1 & $\mathbf{D}$ & 微分算子 \\
+    1 & $n_{i+}$&第$i$行观测值数\\
+    2&$n_{+j}$&第$j$列观测值数\\
+    3&$n_{ij}$&第$i$行第$j$列的观测值\\
+    4&$n_{++}$&表示观测值总数 \\
     \hline
   \end{tabular}
   %\caption{符号与说明}
@@ -93,9 +140,13 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 \section{问题分析}
 
 \subsection{问题一分析}
-题目要求建立模型描述折叠桌的动态变化图，由于在折叠时用力大小的不同，我们不能描述在某一时刻折叠桌的具体形态，但我们可以用每根木条的角度变化来描述折叠桌的动态变化。首先，我们知道折叠桌前后左右对称，我们可以运用几何知识求出四分之一木条的角度变化。最后，根据初始时刻和最终形态两种状态求出桌腿木条开槽的长度。
-
-
+对于问题一，我们需要对问卷数据进行处理，包括缺失值和异常数据的处理，无效问卷的剔除以及问卷数据的整合。接下来我们对问卷饮食习惯数据处理为：平均每月食用次数，平均每天食用量等以满足问题求解要求，接下来对数据进行处理分析，对照附件A2居民膳食指南分析居民饮食习惯是否合理，并指出主要存在的问题。
+\subsection{问题二分析}
+对于问题二，我们需要将生活习惯和饮食习惯量化为具体指标，例如吸烟情况量化为每天/支以及被动吸烟的平均天数，由于年龄为连续变量，性别、婚姻状况等为分类变量，我们需要分别建立模型进行求解。对于连续变量，我们首先对年龄进行排序，再通过计算Spearman等级相关系数分析年龄与生活习惯以及饮食习惯间相关性。对于性别和婚姻状况，我们可以计算其点双列秩相关系数（Point-Biserial Correlation Coefficient）进行相关性分析。文化程度和职业因素为多分类变量，我们通过计算其$\text{Kendall-}\tau$相关系数判断其相关性。
+\subsection{问题三分析}
+对于问题三，我们慢性病的问卷数据量化为是否存在该疾病，由此可见相关性为一个变量为二分类一个变量为连续变量情况，我们通过方差分析(ANOVA)判断其相关性及相关程度，并列出与慢性病相关因素及其相关程度。
+\subsection{问题四分析}
+对于问题四，我们需要对居民进行合理分类，各居民问卷数据具有高维数据和复杂的数据结构特征，经过处理后缺失值填补为平均值，我们可以采用常见的分类学习算法例如随机森林（Random Forest）和支持向量机（Support Vector Machines，SVM）对居民进行分类，并提取各分类中居民的饮食情况和运动情况数据分别进行分析，对每类居民提出合理的建议。
 \section{问题一求解}
 本题数据为问卷数据，对于问卷数据的处理包括数据资料的整理和数据资料的分析。
 
@@ -162,7 +213,7 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
     \caption{调味料使用量}
     \label{t12}
   \end{subfigure}
-  \caption{食用油及调味料食用量}
+  \caption{食用油及调味料使用量}
 \end{figure}
 % \includegraphics[width=0.4\textwidth]{figures/QQ图片20230813170116.jpg}
 % \includegraphics[width=0.4\textwidth]{figures/QQ图片20230813170545.jpg}
@@ -195,64 +246,122 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
 \includegraphics{figures/A1.eps}
 \caption{性别与饮食习惯的$\text{Kendall-}\tau$系数}\label{3}
 \end{figure}
+\clearpage
 \section{问题三模型建立与求解}
+对于高血压和糖尿病的影响因素分析，在问卷数据中高血压和糖尿病为二分类变量，我们采用方差分析法寻找该慢性病的影响因素以及相关程度。
+\subsection{ANOVA介绍}
+方差分析（ANOVA，Analysis of Variance）是一种用于比较不同组之间均值差异是否显著的统计方法。它将总体方差分解为组间方差和组内方差，以便评估组间差异相对于随机误差的显著性。该分析方法步骤如下：
 
+首先我们确立原假设$H_0$:两因素间没有显著相关性以及备择假设$H_1$:两因素间存在显著相关性。
 
+计算组内偏差$SS_e$和组间偏差$SS_A$:
 
+\begin{eqnarray}
+SS_e=\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y_i})^2
+\end{eqnarray}
 
+\begin{eqnarray}
+SS_A=\sum_{i=1}^kn_i(\bar{Y_i}-\bar{Y})^2
+\end{eqnarray}
 
+其中，$\bar{Y}=\frac{1}{n}\sum_{i=1}^{k}\sum_{j=1}^{n_i}Y_{ij},n=n_1+n_2+\cdots+n_k$，则总偏差平方和$SS$可以表示为组内偏差和组间偏差和，计算如下：
 
+\begin{eqnarray}
+SS=SS_e+SS_A=\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y})^2
+\end{eqnarray}
 
+接下来就是计算$F$值来比较组间方差与组内方差的大小，$F$计算如下：
+\begin{eqnarray}
+F=\frac{SS_A(n-k)}{SS_e(k-1)}
+\end{eqnarray}
 
+最后我们通过计算$p$值与显著性水平比较来确定两因素之间相关性，其中$p$值计算如下：
+\begin{eqnarray}
+p=P(F>F_{observed}|\text{null hypothesis})
+\end{eqnarray}
 
+其中，$F_{\text{observed}}$ 是观察到的$F$统计量，$\text{null hypothesis}$是原假设，即两因素间存在显著相关性，若$p$值小于0.05，我们接受原假设认为两因素间存在显著相关性，否则接受备择假设认为两因素间不具有显著相关性。
 
-
-
-
-
-
-
-\section{绘制普通三线表格}
-表格应具有三线表格式，因此常用 booktabs宏包，其标准格式如表~\ref{tab001}~所示。
-\begin{table}[!htbp]
-\caption{标准三线表格}\label{tab001} \centering
-\begin{tabular}{ccccc}
-\toprule[1.5pt]
-$D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
-\midrule[1pt]
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
-\bottomrule[1.5pt]
+\subsection{问题三求解}
+我们分别计算各因素与高血压、糖尿病的$p$值，相关联因素以及对应$p$值见表\ref{bbb}:在表中可以发现一些因素与慢性病存在显著相关性，$p$值越小代表相关性越强。
+\begin{table}[H]
+\centering
+\caption{与慢性病相关因素及$p$值
+}
+\label{bbb}\begin{threeparttable}
+\begin{tabular}{ccc}
+\hline
+相关因素    & 与高血压相关因素$p$值       & 与糖尿病相关因素$p$值 \\ \hline
+薯类      & *0.190943929 & 0.003827177  \\
+油炸面食    & *0.361442233 & 0.046705978  \\
+猪肉      & 0.043642272        & 0.016092084  \\
+牛羊肉     & 0.030360716        & 0.003521846  \\
+禽肉      & *0.234161903 & 0.015988882  \\
+内脏      & 0.041687594        & 0.011282698  \\
+水产      & *0.491465833 & 9.78E-10     \\
+奶粉      & 0.001416892        & 9.45E-17     \\
+蛋类      & *0.398223403 & 0.018104059  \\
+豆腐      & *0.202816301 & 0.000134327  \\
+豆浆      & *0.193012429 & 0.031503582  \\
+新鲜蔬菜    & *0.760532978 & 0.013736621  \\
+泡菜      & *0.215356076  & 0.027442675  \\
+酸菜      & 3.66E-11           & 2.23E-08     \\
+糕点      & 0.011306996        & 2.51E-05     \\
+水果      & 0.000186068        & 1.52E-19     \\
+果汁饮料    & 1.56E-15           & 0.008366292  \\
+吸烟      & 2.79E-07           & 0.033829592  \\
+饮酒      & 0.030320435        & 0.034272381  \\
+体育锻炼 & 0.001241476        & 0.002024085  \\ \hline
 \end{tabular}
+\begin{tablenotes}    %这行要添加， 从这开始
+        \footnotesize               %这行要添加
+        \item[1] 带`*'表示无显著相关性
+      \end{tablenotes}            %这行要添加
+    \end{threeparttable}       %这行要添加，到这里结束
 \end{table}
 
-其绘制表格的代码及其说明如下。
-\begin{tcode}
-\begin{table}[!htbp]
-\caption[标签名]{中文标题}
-\begin{tabular}{cc...c}
-\toprule[1.5pt]
-表头第1个格   & 表头第2个格   & ... & 表头第n个格  \\
-\midrule[1pt]
-表中数据(1,1) & 表中数据(1,2) & ... & 表中数据(1,n)\\
-表中数据(2,1) & 表中数据(2,2) & ... & 表中数据(2,n)\\
-...................................................\\
-表中数据(m,1) & 表中数据(m,2) & ... & 表中数据(m,n)\\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-\end{tcode}
+\section{问题四模型建立与求解}
+对于高维数据和复杂的数据结构特征，我们可以采用的分类学习算法如随机森林（Random Forest）对居民进行分类。
+\subsection{随机森林算法}
+随机森林算法（Random Forest）是基于分类回归树 CART （Classification and Regression Tree） 发展的一种集成学习模型，它由大量相互独立构建的决策树组合而成。随机森林分类算法具有极好的准确率，能够有效的运行在大数据集上，可以处理具有高维特征的样本输入。为了评估模型的性能，采用了混淆矩阵$C.M.$，ROC曲线下面积$AUC$，分别计算如下：
+\begin{eqnarray}
+C.M.=\begin{bmatrix}
+  TP&FN \\
+  FP&TN
+\end{bmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+AUC=\frac{1}{2}(\frac{TP}{TP+EN}+\frac{TP}{TP+FP})
+\end{eqnarray}
+其中，$TP,FP,TN$和$FN$分别是真阳性，假阳性，真阴性和假阴性的数量。选取均方误差$RMSE$，平均绝对误差$MAE$，相对绝对误差$RAE$对模型进行误差评估，，分别计算如下：
+\begin{eqnarray}
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\end{eqnarray}
+\begin{eqnarray}
+MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+\end{eqnarray}
+\begin{eqnarray}
+RAE = \frac{\sum_{i=1}^{n} |y_i - \hat{y}_i|}{\sum_{i=1}^{n} |y_i - \bar{y}|}
+\end{eqnarray}
+其中，$n$是样本数量，$y_i$是第$i$个真实值，$\hat{y_i}$是第$i$个预测值，$\bar{y}$是真实值的平均值。我们训练后模型$ROC$曲线如下：
+\begin{figure}[H]
+\centering
+\includegraphics[width=.49\textwidth,height=0.3\textwidth]{figures/31.eps}
+\includegraphics[width=.49\textwidth,height=0.3\textwidth]{figures/32.eps}
+\includegraphics[width=.49\textwidth,height=0.3\textwidth]{figures/33.eps}
+\includegraphics[width=.49\textwidth,height=0.3\textwidth]{figures/34.eps}
+\caption{测试集$ROC$曲线}
+\end{figure}
 
-\bigskip
-table环境是一个将表格嵌入文本的浮动环境。
-tabular环境的必选参数由每列对应一个格式字符所组成：c表示居中，l表示左对齐，r表示右对齐，其总
-个数应与表的列数相同。此外，\verb|@{文本}|可以出现在任意两个上述的列格式之间，其中的文本将被插入每一行
-的同一位置。表格的各行以\verb|\\|分隔，同一行的各列则以\&分隔。
-\verb|\toprule|、\verb|\midrule|和\verb|\bottomrule|三个命令是由booktabs宏包提供的，其
-中\verb|\toprule|和\verb|\bottomrule|分别用来绘制表格的第一条（表格最顶部）和第三条（表格最底部）水平线，
-\verb|\midrule|用来绘制第二条（表头之下）水平线，且第一条和第三条水平线的线宽为1.5pt，第二条水平线的线宽为1pt。
-引用方法：“如表~\verb|\ref{标签名}|~所示”。
+
+
+
+
+
+
+
+
+
 
 
 %参考文献
@@ -264,51 +373,299 @@ tabular环境的必选参数由每列对应一个格式字符所组成：c表示
 \newpage
 %附录
 \begin{appendices}
-\section{排队算法--matlab 源程序}
+\begin{lstlisting}[language=html]
+
+\end{lstlisting}
+\section{第一问MATLAB代码}
+\begin{lstlisting}[language=matlab]% 全部转化为食物次数/月,结果储存在new_X
+% load('X.mat')
+[num_rows, num_cols] = size(X);
+new_X=zeros(num_rows,num_cols/5);
+% 周期
+period = 5;
+
+% 遍历
+for i = 1:period:num_cols
+    % 计算新的一列数据，如果第一列为2，则结果为0，否则进行计算
+    for j=1:num_rows 
+        if X(j, i) == 2
+            new_X(j,(i-1)/5+1)=0;
+        else 
+            new_X(j,(i-1)/5+1)=X(j, i+1) * 30 + X(j, i+2) * 4 + X(j, i+3);
+        end
+    end
+end
+
+% 各食物平均每月食用量,结果储存在nnew_X
+[num_rows, num_cols] = size(X);
+nnew_X=zeros(num_rows,num_cols/5);
+% 周期
+period = 5;
+
+% 遍历
+for i = 1:period:num_cols
+    % 计算新的一列数据，如果第一列为2，则结果为0，否则进行计算
+    for j=1:num_rows 
+        if X(j, i) == 2
+            nnew_X(j,(i-1)/5+1)=0;
+        else 
+            nnew_X(j,(i-1)/5+1)=(X(j, i+1) * 30 + X(j, i+2) * 4 + X(j, i+3))*X(j, i+4);
+        end
+    end
+end
+
+%各食物平均食用频率,结果储存在gsw_means
+gsw_means = mean(new_X);
+%各食物平均食用量,结果储存在ngsw_means
+ngsw = mean(nnew_X);
+means=[50;50;50;50;50;50;50;50;50;50;50;10;50;60;50;50;50;50;50;50;50;50;50;50;50;250;250]';
+ngsw_means=zeros(size(ngsw));
+for i=1:27
+    ngsw_means(1,i)=ngsw(1,i)*means(1,i)/gsw_means(1,i);
+end
+
+% 各食物食用人数占比,结果储存在nonzero_percentage
+[num_rows, num_cols] = size(new_X);
+nonzero_percentage = zeros(1, num_cols);
+
+% 计算每列的非零元素占比
+for i = 1:num_cols
+    nonzero_count = nnz(new_X(:, i)); % 计算非零元素数量
+    nonzero_percentage(i) = nonzero_count / num_rows; % 计算占比
+end
+nonzero_percentage=100*nonzero_percentage;
+\end{lstlisting}
+\section{第一问PYTHON代码}
+\begin{lstlisting}[language=python]import pandas as pd
+import matplotlib.pyplot as plt
+
+
+csv_file_path = "data.csv"  
+data = pd.read_csv(csv_file_path, encoding='GBK')
+
+
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False 
+
+drink_counts = data['是否饮酒'].value_counts()
+
+
+labels = ['不饮酒', '饮酒', '已戒酒']
+plt.figure(figsize=(8, 6))
+plt.pie(drink_counts, labels=labels, autopct='%1.1f%%', startangle=140)
+plt.title('饮酒情况分布')
+plt.show()
+
+
+drinkers_data = data[data['是否饮酒'] == 1]
+
+
+average_years = drinkers_data['饮酒年数'].mean()
+
+
+alcohol_columns = ['是否饮用高度白酒', '是否饮用低度白酒', '是否饮用啤酒', '是否饮用黄酒、糯米酒', '是否饮用葡萄酒']
+alcohol_labels = ['高度白酒', '低度白酒', '啤酒', '黄酒、糯米酒', '葡萄酒']
+
+average_freq = drinkers_data[alcohol_columns].mean()
+average_amount = drinkers_data[alcohol_columns].mul(drinkers_data['饮用频率'], axis=0).sum() / drinkers_data['饮用频率'].sum()
+
+print(f"平均饮酒年限：{average_years:.2f} 年")
+print("每种酒类的饮用频率和饮用量：")
+for label, freq, amount in zip(alcohol_labels, average_freq, average_amount):
+    print(f"{label}：")
+    print(f"  平均饮用频率：{freq:.2f} 次/周")
+    print(f"  平均饮用量：{amount:.2f} 两")
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv('data.csv',encoding='GBK')
+not_eating_breakfast_avg = data['不吃早餐'].mean()
+not_eating_lunch_avg = data['不吃中餐'].mean()
+not_eating_dinner_avg = data['不吃晚餐'].mean()
+
+eating_at_home_breakfast_avg = data['在家吃早餐'].mean()
+eating_at_home_lunch_avg = data['在家吃中餐'].mean()
+eating_at_home_dinner_avg = data['在家吃晚餐'].mean()
+
+carry_to_work_breakfast_avg = data['早餐带餐到单位'].mean()
+carry_to_work_lunch_avg = data['中餐带餐到单位'].mean()
+carry_to_work_dinner_avg = data['晚餐带餐到单位'].mean()
+
+cafeteria_breakfast_avg = data['单位食堂早餐'].mean()
+cafeteria_lunch_avg = data['单位食堂中餐'].mean()
+cafeteria_dinner_avg = data['单位食堂晚餐'].mean()
+
+restaurant_breakfast_avg = data['在餐馆或街头吃早餐'].mean()
+restaurant_lunch_avg = data['在餐馆或街头吃中餐'].mean()
+restaurant_dinner_avg = data['在餐馆或街头吃晚餐'].mean()
+
+home_weekday_breakfast_avg = data['工作日在家吃早餐人数'].mean()
+home_weekday_lunch_avg = data['工作日在家吃中餐人数'].mean()
+home_weekday_dinner_avg = data['工作日在家吃晚餐人数'].mean()
+
+home_weekend_breakfast_avg = data['周末在家吃早餐人数'].mean()
+home_weekend_lunch_avg = data['周末在家吃中餐人数'].mean()
+home_weekend_dinner_avg = data['周末在家吃晚餐人数'].mean()
+
+
+print("不吃早餐平均数:%.3f"%not_eating_breakfast_avg)
+print("不吃中餐平均数:%.3f"%not_eating_lunch_avg)
+print("不吃晚餐平均数:%.3f" %not_eating_dinner_avg)
+
+print("在家吃早餐平均数:%.3f" %eating_at_home_breakfast_avg)
+print("在家吃中餐平均数:%.3f" %eating_at_home_lunch_avg)
+print("在家吃晚餐平均数:%.3f" %eating_at_home_dinner_avg)
+
+print("早餐带餐到单位平均数:%.3f"% carry_to_work_breakfast_avg)
+print("中餐带餐到单位平均数:%.3f"% carry_to_work_lunch_avg)
+print("晚餐带餐到单位平均数:%.3f"% carry_to_work_dinner_avg)
+
+print("单位食堂早餐平均数:%.3f"% cafeteria_breakfast_avg)
+print("单位食堂中餐平均数:%.3f"% cafeteria_lunch_avg)
+print("单位食堂晚餐平均数:%.3f"% cafeteria_dinner_avg)
+
+print("在餐馆或街头吃早餐平均数:%.3f"% restaurant_breakfast_avg)
+print("在餐馆或街头吃中餐平均数:%.3f"% restaurant_lunch_avg)
+print("在餐馆或街头吃晚餐平均数:%.3f"% restaurant_dinner_avg)
+
+print("工作日在家吃早餐人数平均数:%.3f"% home_weekday_breakfast_avg)
+print("工作日在家吃中餐人数平均数:%.3f"% home_weekday_lunch_avg)
+print("工作日在家吃晚餐人数平均数:%.3f"% home_weekday_dinner_avg)
+
+print("周末在家吃早餐人数平均数:%.3f"% home_weekend_breakfast_avg)
+print("周末在家吃中餐人数平均数:%.3f"% home_weekend_lunch_avg)
+print("周末在家吃晚餐人数平均数:%.3f"% home_weekend_dinner_avg)
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+def plot_pie(labels, sizes, title):
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
+    plt.axis('equal')
+    plt.title(title)
+    plt.show()
+
+
+not_eating_avg = [not_eating_breakfast_avg, not_eating_lunch_avg, not_eating_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], not_eating_avg, '不吃早、中、晚餐的平均比例')
+
+
+eating_at_home_avg = [eating_at_home_breakfast_avg, eating_at_home_lunch_avg, eating_at_home_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], eating_at_home_avg, '在家吃早、中、晚餐的平均比例')
+
+carry_to_work_avg = [carry_to_work_breakfast_avg, carry_to_work_lunch_avg, carry_to_work_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], carry_to_work_avg, '带餐到单位的平均比例')
+
+
+cafeteria_avg = [cafeteria_breakfast_avg, cafeteria_lunch_avg, cafeteria_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], cafeteria_avg, '单位食堂用餐的平均比例')
+
+
+restaurant_avg = [restaurant_breakfast_avg, restaurant_lunch_avg, restaurant_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], restaurant_avg, '餐馆或街头用餐的平均比例')
+
+
+home_weekday_avg = [home_weekday_breakfast_avg, home_weekday_lunch_avg, home_weekday_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], home_weekday_avg, '工作日在家用餐的平均比例')
+
+
+home_weekend_avg = [home_weekend_breakfast_avg, home_weekend_lunch_avg, home_weekend_dinner_avg]
+plot_pie(['早餐', '中餐', '晚餐'], home_weekend_avg, '周末在家用餐的平均比例')
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+sns.set(style="whitegrid", font='SimHei')
+
+
+data = pd.read_csv('data.csv', encoding='GBK')
+
+
+smoking_status_count = data['是否吸烟'].value_counts()
+
+
+plt.figure(figsize=(8, 6))
+plt.pie(smoking_status_count, labels=['不吸烟', '吸烟', '过去吸烟现已戒烟'], autopct='%1.1f%%', startangle=140, colors=sns.color_palette("pastel"))
+plt.title('吸烟情况比例')
+plt.axis('equal')
+plt.show()
+
+
+smokers_data = data[data['是否吸烟'] == 1]
+average_start_age = smokers_data['开始吸烟年龄'].mean()
+average_weekly_days = smokers_data['平均每周吸烟天数'].mean()
+average_daily_amount = smokers_data['一天吸烟支数'].mean()
+
+
+passive_smoking_days = data[data['是否吸烟'] == 3]['被动吸烟天数'].mean()
+
+
+print(f"吸烟者开始吸烟的平均年龄: {average_start_age:.2f} 岁")
+print(f"吸烟者平均每周吸烟天数: {average_weekly_days:.2f} 天")
+print(f"吸烟者平均每天吸烟支数: {average_daily_amount:.2f} 支")
+plt.savefig('吸烟情况.png', dpi=600)
+
+print(f"不吸烟或已戒烟者被动吸烟超过15分钟的平均天数: {passive_smoking_days:.2f} 天")
+
+
+\end{lstlisting}
+\section{第三问MATLAB代码}
 \begin{lstlisting}[language=matlab]
-kk=2;[mdd,ndd]=size(dd);
-while ~isempty(V)
-[tmpd,j]=min(W(i,V));tmpj=V(j);
-for k=2:ndd
-[tmp1,jj]=min(dd(1,k)+W(dd(2,k),V));
-tmp2=V(jj);tt(k-1,:)=[tmp1,tmp2,jj];
+% 提取分类变量和其他连续变量
+categories1 =   A(:, 1); 
+categories2 = A(:, 2);   
+continuous_data = A(:, 3:end); 
+
+% 进行单因素方差分析
+num_continuous_vars = size(continuous_data, 2);
+p_values = zeros(num_continuous_vars, 1);
+
+for i = 1:num_continuous_vars
+    var_data = continuous_data(:, i);
+    
+    % 进行单因素方差分析
+    [p1, ~, ~] = anova1(var_data, categories1, 'off');
+    [p2, ~, stats] = anova1(var_data, categories2, 'off');
+    % 存储 p 值
+    p_values(i) = p1;
+    np_values(i) = p2;
 end
-tmp=[tmpd,tmpj,j;tt];[tmp3,tmp4]=min(tmp(:,1));
-if tmp3==tmpd, ss(1:2,kk)=[i;tmp(tmp4,2)];
-else,tmp5=find(ss(:,tmp4)~=0);tmp6=length(tmp5);
-if dd(2,tmp4)==ss(tmp6,tmp4)
-ss(1:tmp6+1,kk)=[ss(tmp5,tmp4);tmp(tmp4,2)];
-else, ss(1:3,kk)=[i;dd(2,tmp4);tmp(tmp4,2)];
-end;end
-dd=[dd,[tmp3;tmp(tmp4,2)]];V(tmp(tmp4,3))=[];
-[mdd,ndd]=size(dd);kk=kk+1;
-end; S=ss; D=dd(1,:);
- \end{lstlisting}
- \section{规划解决程序--lingo源代码}
-\begin{lstlisting}[language=c]
-kk=2;
-[mdd,ndd]=size(dd);
-while ~isempty(V)
-    [tmpd,j]=min(W(i,V));tmpj=V(j);
-for k=2:ndd
-    [tmp1,jj]=min(dd(1,k)+W(dd(2,k),V));
-    tmp2=V(jj);tt(k-1,:)=[tmp1,tmp2,jj];
+
+% 输出变量与分类变量的相关性结果
+disp('Variable vs. Category1 p-values:');
+disp(p_values);
+disp('Variable vs. Category2 p-values:');
+disp(np_values);
+% 设置显著性水平
+alpha = 0.05;
+
+% 筛选相关性显著的连续变量
+significant_vars = find(p_values < alpha&p_values~=0);
+
+% 输出筛选结果
+disp('Significantly correlated variables:');
+disp(significant_vars);
+nsignificant_vars = find(np_values < alpha&p_values~=0);
+disp('Significantly correlated variables:');
+disp(nsignificant_vars);
+
+resultMatrix = strings(1, length(significant_vars));
+resultMatrixs = zeros(1, length(significant_vars));
+for i = 1:length(significant_vars)
+    index = significant_vars(i);
+    resultMatrix(i) = XXX(index);
+    resultMatrixs(i) = p_values(index);
 end
-    tmp=[tmpd,tmpj,j;tt];[tmp3,tmp4]=min(tmp(:,1));
-if tmp3==tmpd, ss(1:2,kk)=[i;tmp(tmp4,2)];
-else,tmp5=find(ss(:,tmp4)~=0);tmp6=length(tmp5);
-if dd(2,tmp4)==ss(tmp6,tmp4)
-    ss(1:tmp6+1,kk)=[ss(tmp5,tmp4);tmp(tmp4,2)];
-else, ss(1:3,kk)=[i;dd(2,tmp4);tmp(tmp4,2)];
-end;
+nresultMatrix = strings(1, length(nsignificant_vars));
+nresultMatrixs = zeros(1, length(nsignificant_vars));
+for i = 1:length(nsignificant_vars)
+    index = nsignificant_vars(i);
+    nresultMatrix(i) = XXX(index);
+    nresultMantrixs(i) = np_values(index);
 end
-    dd=[dd,[tmp3;tmp(tmp4,2)]];V(tmp(tmp4,3))=[];
-    [mdd,ndd]=size(dd);
-    kk=kk+1;
-end;
-S=ss;
-D=dd(1,:);
- \end{lstlisting}
+
+
+\end{lstlisting}
 \end{appendices}
 
 \end{document} 
