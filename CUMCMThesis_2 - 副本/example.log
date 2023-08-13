@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.9)  13 AUG 2023 17:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.9)  13 AUG 2023 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1442,6 +1442,11 @@ Overfull \hbox (2.35254pt too wide) detected at line 11
 \TU/SimHei(0)/b/n/12.045 七、|  
  []
 
+
+Overfull \hbox (2.35254pt too wide) detected at line 12
+\TU/SimHei(0)/b/n/12.045 八、|  
+ []
+
 )
 \tf@toc=\write6
 \openout6 = `example.toc'.
@@ -1504,49 +1509,44 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [3
 
 ] [4]
-File: figures/QQ图片20230813170116.jpg Graphic file (type bmp)
-<figures/QQ图片20230813170116.jpg>
+File: figures/QQ图片20230813183040.jpg Graphic file (type bmp)
+<figures/QQ图片20230813183040.jpg>
 File: figures/QQ图片20230813170545.jpg Graphic file (type bmp)
 <figures/QQ图片20230813170545.jpg>
- [5]
+ [5] [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 176.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 176.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 176.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 176.
+(hyperref)                removed on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 176.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 176.
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 178.
 
-File: figures/A1.eps Graphic file (type eps)
-<figures/A1.eps>
-[6]
 
-LaTeX Warning: Reference `3' on page 7 undefined on input line 190.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 178.
 
 File: figures/A2.eps Graphic file (type eps)
 <figures/A2.eps>
+File: figures/A1.eps Graphic file (type eps)
+<figures/A1.eps>
+[7
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-(d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+] (d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -1599,8 +1599,8 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [7]
-Overfull \hbox (25.70299pt too wide) in paragraph at lines 246--254
+ [8]
+Overfull \hbox (25.70299pt too wide) in paragraph at lines 248--256
 [][]\TU/lmtt/m/n/12.05 \midrule[]\TU/SimSun(0)/m/n/12.05 和[][]\TU/lmtt/m/n/12.0
 5 \bottomrule[]\TU/SimSun(0)/m/n/12.05 三 个 命 令 是 由 \TU/TimesNewRoman(0)/m/n/12.
 05 booktabs \TU/SimSun(0)/m/n/12.05 宏 包 提 供 的，|  其 中[][]\TU/lmtt/m/n/12.05 \top
@@ -1608,7 +1608,7 @@ rule[]\TU/SimSun(0)/m/n/12.05 和[][]\TU/lmtt/m/n/12.05 \bottomrule[]\TU/SimSun(
 )/m/n/12.05 分
  []
 
-[8] [9] (d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+[9] (d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (d:/texlive/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1621,19 +1621,16 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `example.out' has not changed.
-(rerunfilecheck)             Checksum: 088B7A030D8E6E7471D9F9E7CFB47067;1736.
+(rerunfilecheck)             Checksum: 9F374C248DE47808BD235EE0DEE18C74;1883.
  ) 
 Here is how much of TeX's memory you used:
- 33106 strings out of 476179
- 696649 string characters out of 5809544
- 1190768 words of memory out of 5000000
- 53138 multiletter control sequences out of 15000+600000
+ 33105 strings out of 476179
+ 696645 string characters out of 5809544
+ 1190695 words of memory out of 5000000
+ 53137 multiletter control sequences out of 15000+600000
  500873 words of font info for 235 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,13n,111p,504b,2691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,111p,504b,2693s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on example.xdv (12 pages, 160320 bytes).
+Output written on example.xdv (12 pages, 162696 bytes).

@@ -152,7 +152,7 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
   \centering
 
   \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{figures/QQ图片20230813170116.jpg}
+    \includegraphics[width=\textwidth]{figures/QQ图片20230813183040.jpg}
     \caption{食用油使用量}
     \label{t11}
   \end{subfigure}
@@ -162,6 +162,7 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
     \caption{调味料使用量}
     \label{t12}
   \end{subfigure}
+  \caption{食用油及调味料食用量}
 \end{figure}
 % \includegraphics[width=0.4\textwidth]{figures/QQ图片20230813170116.jpg}
 % \includegraphics[width=0.4\textwidth]{figures/QQ图片20230813170545.jpg}
@@ -171,6 +172,7 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
 
 
 无论男女老少，酒精的过多摄入都是不利于健康的，由图  数据可得，仍然有很多居民饮酒，且对各类酒的平均每次饮用量也普遍较多不符合膳食准则所要求的酒精量，一部分居民仍然存在不适量饮酒的健康问题。
+\clearpage
 \section{问题二模型建立和求解}
 要分析居民的生活习惯和饮食习惯与年龄、性别、婚姻状况、文化程度、职业等因素的相关性，我们采取$\text{Kendall-}\tau$相关系数来判定。
 \subsection{$\text{Kendall}$相关性分析}
@@ -181,19 +183,19 @@ D30  & 其他饮料             & 5.20086779  & 47.52424706 & 376.3493154 \\ \hl
 其中，$n_{i+}$表示第$i$行观测值数，$n_{+j}$表示第$j$列观测值数，$n_{ij}$表示第$i$行第$j$列的观测值，$n_{++}$表示观测值总数。
 
 我们通过计算得到年龄、性别、婚姻状况、文化程度、职业等因素与生活习惯与饮食习惯的$\text{Kendall-}\tau$系数，结果见图\ref{2}:
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics{figures/A1.eps}
+\includegraphics{figures/A2.eps}
 \caption{$\text{Kendall-}\tau$系数}\label{2}
 \end{figure}
 
-以性别和饮食习惯为例，我们将$\text{Kendall-}\tau$系数从高到低排序并绘制如图\ref{3}所示。我们发现${Kendall-}\tau$相关系数绝对值均不超过0.3，我们认为不存在显著相关性，为了验证我们的结果，画出散点矩阵如下图所示：
-\begin{figure}[h]
+以性别和饮食习惯为例，我们将$\text{Kendall-}\tau$系数从高到低排序并绘制如图\ref{3}所示。我们发现${Kendall-}\tau$相关系数绝对值均不超过0.3，我们认为不存在显著相关性。
+\begin{figure}[H]
 \centering
-\includegraphics{figures/A2.eps}
-\caption{性别与饮食习惯的$\text{Kendall-}\tau$系数}\label{zd}
+\includegraphics{figures/A1.eps}
+\caption{性别与饮食习惯的$\text{Kendall-}\tau$系数}\label{3}
 \end{figure}
-
+\section{问题三模型建立与求解}
 
 
 

@@ -6,9 +6,10 @@
 \contentsline {section}{\numberline {四、}问题分析}{3}{section.4}%
 \contentsline {subsection}{\numberline {4\,.\,1}问题一分析}{3}{subsection.4.1}%
 \contentsline {section}{\numberline {五、}问题一求解}{4}{section.5}%
-\contentsline {section}{\numberline {六、}问题二模型建立和求解}{6}{section.6}%
-\contentsline {subsection}{\numberline {6\,.\,1}$\text {Kendall}$相关性分析}{6}{subsection.6.1}%
-\contentsline {section}{\numberline {七、}绘制普通三线表格}{7}{section.7}%
+\contentsline {section}{\numberline {六、}问题二模型建立和求解}{7}{section.6}%
+\contentsline {subsection}{\numberline {6\,.\,1}$\text {Kendall}$相关性分析}{7}{subsection.6.1}%
+\contentsline {section}{\numberline {七、}问题三模型建立与求解}{8}{section.7}%
+\contentsline {section}{\numberline {八、}绘制普通三线表格}{8}{section.8}%
 \contentsline {section}{参考文献}{9}{section*.8}%
 \contentsline {section}{附录 \numberline {A}排队算法--matlab 源程序}{10}{appendix.a.A}%
 \contentsline {section}{附录 \numberline {B}规划解决程序--lingo源代码}{10}{appendix.a.B}%
