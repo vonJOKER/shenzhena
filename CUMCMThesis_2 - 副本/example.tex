@@ -1,8 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 %!TEX program  = xelatex
 
-\documentclass{cumcmthesis}
-%\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
+%\documentclass{cumcmthesis}
+\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
 
 \usepackage{url}
 \usepackage{tikz}
@@ -33,7 +33,7 @@
   frame=single,	                   				% 给代码区添加边框.
   keepspaces=true,                 				% 保留空格（useful for keeping indentation of code (possibly needs columns=flexible).
   keywordstyle=\color[RGB]{40,40,255},          % 关键字显示风格.
-  morekeywords={begin}, 			% 是否需要添加其他的关键词.
+  morekeywords={begin}, 			% 是否需要添加其他关键词
   numbers=none,                    				% 给代码添加行号，可取值none, left, right.
   numbersep=5pt,                   				% 设置行号与代码之间的间隔
   numberstyle=\tiny\color{gray}, 				% 行号的字号和颜色
@@ -55,7 +55,7 @@
 \membera{余航雷}
 \memberb{郑妙}
 \memberc{刘晨奇}
-\supervisor{老师}
+\supervisor{侯志敏}
 \yearinput{2023}
 \monthinput{08}
 \dayinput{14}
@@ -354,7 +354,9 @@ RAE = \frac{\sum_{i=1}^{n} |y_i - \hat{y}_i|}{\sum_{i=1}^{n} |y_i - \bar{y}|}
 \includegraphics[width=.49\textwidth]{figures/34.eps}
 \caption{测试集$ROC$曲线}
 \end{figure}
+我们通过机器学习将居民群体分为4大类，这四类的$AUC$值均在0.7以上，分类器准确率达到0.64，我们认为该模型分类效果良好。接下来提取每类人群的问卷数据，并分别统计分析其生活习惯及饮食习惯各项指标。我们提出以下合理意见：
 
+第I类人群基本为未患慢性病人群，并不需要刻意控制饮食，但仍需要注意吸烟饮酒情况。第II类人群基本为患高血压人群，该类居民应当控制酸菜、吸烟等频率，增大体育锻炼的量。第III类人群为患糖尿病人群，应当根据医生要求控制糖类进食量。第VI类人群基本为某种原因未患慢性病但在血压，血糖等方面仍存在些许问题，这类居民应当即使就医，少抽烟少喝酒，增强体育锻炼等预防慢性病的发生。
 
 
 
@@ -431,7 +433,8 @@ RAE = \frac{\sum_{i=1}^{n} |y_i - \hat{y}_i|}{\sum_{i=1}^{n} |y_i - \bar{y}|}
 %附录
 \begin{appendices}
 \section{附件列表}
-\begin{lstlisting}[language=html]第一次培训
+\begin{lstlisting}[language=html]
+第一次培训
 ├─ README.md
 ├─ 数据.xlsx
 ├─ 草稿.md
@@ -476,7 +479,8 @@ RAE = \frac{\sum_{i=1}^{n} |y_i - \hat{y}_i|}{\sum_{i=1}^{n} |y_i - \bar{y}|}
 
 \end{lstlisting}
 \section{第一问MATLAB代码}
-\begin{lstlisting}[language=matlab]% 全部转化为食物次数/月,结果储存在new_X
+\begin{lstlisting}[language=matlab]
+% 全部转化为食物次数/月,结果储存在new_X
 % load('X.mat')
 [num_rows, num_cols] = size(X);
 new_X=zeros(num_rows,num_cols/5);
@@ -535,7 +539,8 @@ end
 nonzero_percentage=100*nonzero_percentage;
 \end{lstlisting}
 \section{第一问PYTHON代码}
-\begin{lstlisting}[language=python]import pandas as pd
+\begin{lstlisting}[language=python]
+import pandas as pd
 import matplotlib.pyplot as plt
 
 
